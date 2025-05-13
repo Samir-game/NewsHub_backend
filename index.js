@@ -25,8 +25,8 @@ connectionDB()
         console.log("Server started at PORT: ",PORT)
     })
 
-    cron.schedule("*/10 * * * *",getNewsTask)
-    console.log("Cron job scheduled: News will be fetched every 10 minutes.");
+    cron.schedule("*/30 * * * *",getNewsTask)
+    console.log("Cron job scheduled: News will be fetched every 30 minutes.");
 })
 .catch((error)=>{
     console.log("connection to Database Failed.",error)
