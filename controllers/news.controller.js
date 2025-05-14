@@ -56,13 +56,24 @@ const getNews = async () => {
 
 
 const fetchNewsFromDB= async(req,res)=>{
+
+    const page=req.query.page || 1;
+    const limit=req.query.limit || 3;
+    const skip=(page-1)*limit;
+
     try {
+
+        const totalNews= await News.countDocuments();
+
         const news=await News.find()
         .select("-newsDescription -newsContent -newsUrl -newsImage -newsComments")
         .sort({createdAt:-1})
-        .limit(10)
-        
+        .skip(skip)
+        .limit(limit);
+
         res.status(200).json({
+            currentPage: page,
+            totalPages: Math.ceil(totalNews / limit),
             news
         })
 
