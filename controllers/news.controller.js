@@ -46,7 +46,6 @@ const getNews = async () => {
                     newsPublishedAt: article?.publishedAt,
                     newsSource: article?.source?.name,
                 });
-                console.log("News saved:", news.title);
             }
         }
     } catch (error) {
@@ -57,8 +56,8 @@ const getNews = async () => {
 
 const fetchNewsFromDB= async(req,res)=>{
 
-    const page=req.query.page || 1;
-    const limit=req.query.limit || 3;
+    const page=parseInt(req.query.page) || 1;
+    const limit=parseInt(req.query.limit) || 3;
     const skip=(page-1)*limit;
 
     try {
