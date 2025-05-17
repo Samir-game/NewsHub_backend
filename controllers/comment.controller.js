@@ -69,18 +69,21 @@ const deleteComment= async(req,res)=>{
             });
         }
         
-        const commentIndex=news.newsComments.findIndex((comment)=>
-            comment._id.toString()===commentId.toString() &&
-            comment.user.toString() ===userId.toString()
-        )
-
-        if(commentIndex===-1){
+        const comment=news.newsComments.id(commentId);
+        if (!comment) {
             return res.status(404).json({
-                msg:"comment not found"
+                msg: "Comment not found",
+            });
+        }
+
+        if(!comment.user.equals(userId)){
+            return res.status(403).json({
+                msg:"you are not authorised to delete this comment"
             })
         }
 
-        news.newsComments.splice(commentIndex,1);
+        const findIndex = news.newsComments.findIndex((c)=>c._id.equals(comment._id));
+        news.newsComments.splice(findIndex,1)
         await news.save();
 
         return res.status(200).json({
@@ -88,7 +91,7 @@ const deleteComment= async(req,res)=>{
         })
     
     } catch (error) {
-        console.log("error writing the comment",error)
+        console.log("error deleting the comment",error)
         return res.status(500).json({
             msg:"internal server error"
         }) 
