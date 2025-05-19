@@ -74,6 +74,7 @@ const handleLogin= async(req,res)=>{
 
         return res.status(200).json({
             msg:"login successful",
+            userId:user._id,
             userName: user.userName,
             userEmail: user.userEmail,
             token,
