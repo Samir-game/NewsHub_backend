@@ -1,7 +1,7 @@
 # NewsHub
 
 ## 📌 Project Overview
- A responsive web application that aggregates and displays the latest news articles from various categories such as technology, sports, entertainment, and business. It leverages a news API to fetch real-time updates and presents them in a clean, categorized format. Includes a commenting feature to foster an interactiveenvironment for discussion.
+ A responsive web application that aggregates and displays the latest news articles from various categories such as technology, sports, entertainment, and business. It leverages a news API to fetch real-time updates and presents them in a clean, categorized format. Includes a commenting feature to foster an interactive environment for discussion.
 
 ## 🚀 Features
 - 🔐 **User Authentication**  
