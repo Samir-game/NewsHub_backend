@@ -36,5 +36,21 @@ npm install
 npm start
 ```
 
-\
+:
+
+🌍 API Endpoints
+🔐 Authentication Routes
+Method	Endpoint	Description
+POST	/api/signup	Register a new user
+POST	/api/login	Log in an existing user and receive a JWT token
+
+📰 News Routes
+Method	Endpoint	Description
+GET	/api/home	Fetch all news articles from DB
+GET	/api/home/:newsId	Get a specific news article and its associated comments
+
+💬 Comment Routes
+Method	Endpoint	Description
+POST	/api/addComment/:newsId	Add a comment to a specific news article (Requires Auth)
+DELETE	/api/deleteComment/:commentId	Delete a comment (Requires Auth)
 
