@@ -22,6 +22,7 @@
 ---
 
 ## 🛠️ Tech Stack
+- **Frontend**: React.js, Axios
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (for storing users and pins)
 - **Other Libraries**: Axios, bcryptjs, etc.
